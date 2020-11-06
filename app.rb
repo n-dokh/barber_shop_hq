@@ -44,3 +44,13 @@ end
 get '/contact' do
 	erb :contact
 end
+
+post '/contact' do
+	@name = params[:name]
+	@mail = params[:mail]
+	@message = params[:message]
+
+	Contact.create({name: @name, mail: @mail, message: @message})
+
+	erb :contact
+end

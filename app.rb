@@ -12,6 +12,10 @@ end
 class Barber < ActiveRecord::Base
 end
 
+class Contact < ActiveRecord::Base
+end
+
+
 before do 
 	@barbers = Barber.all
 end
@@ -31,6 +35,12 @@ post '/visit' do
 	@barber = params[:barber]
 	@color = params[:color]
 
+	Client.create({name: @username, phone: @phone, datestamp: @datetime, barber: @barber, color: @color})
+
 	erb "OK, username is #{@username}, #{@phone}, #{@datetime}, #{@barber}, #{@color}"
 
+end
+
+get '/contact' do
+	erb :contact
 end

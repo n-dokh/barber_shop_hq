@@ -45,7 +45,11 @@ post '/visit' do
 	c = Client.new params[:client]
 	c.save
 
-	erb "good"
+	if c.save
+		erb "We are waiting for you"
+	else
+		erb "Error"
+	end
 
 end
 

@@ -48,7 +48,8 @@ post '/visit' do
 	if c.save
 		erb "We are waiting for you"
 	else
-		erb "Error"
+		@error = c.errors.full_messages.first
+		erb :visit
 	end
 
 end

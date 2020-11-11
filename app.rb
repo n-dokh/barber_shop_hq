@@ -29,15 +29,18 @@ get '/visit' do
 end
 
 post '/visit' do
-	@username = params[:username]
-	@phone = params[:phone]
-	@datetime = params[:datetime]
-	@barber = params[:barber]
-	@color = params[:color]
+	# @username = params[:username]
+	# @phone = params[:phone]
+	# @datetime = params[:datetime]
+	# @barber = params[:barber]
+	# @color = params[:color]
 
-	Client.create({name: @username, phone: @phone, datestamp: @datetime, barber: @barber, color: @color})
+	# Client.create({name: @username, phone: @phone, datestamp: @datetime, barber: @barber, color: @color})
 
-	erb "OK, username is #{@username}, #{@phone}, #{@datetime}, #{@barber}, #{@color}"
+	c = Client.new params[:client]
+	c.save
+
+	erb "good"
 
 end
 

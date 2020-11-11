@@ -69,3 +69,7 @@ post '/contact' do
 
 	erb :contact
 end
+
+get '/barber/:id' do
+	erb :barber
+end

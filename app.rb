@@ -30,6 +30,7 @@ get '/' do
 end
 
 get '/visit' do
+	
 	erb :visit
 end
 
@@ -78,4 +79,9 @@ end
 get '/bookings' do
 	@clients = Client.all
 	erb :bookings
+end
+
+get '/clients/:id' do
+	@client = Client.find(params[:id])
+	erb :client
 end
